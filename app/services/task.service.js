@@ -9,17 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var mock_tasks_1 = require('./mock-tasks');
+var TaskService = (function () {
+    function TaskService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>Digital Bullet Journal</h1>\n    <my-tasks></my-tasks>\n    ",
-        }), 
+    TaskService.prototype.getTasks = function () {
+        return Promise.resolve(mock_tasks_1.TASKS);
+    };
+    TaskService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], TaskService);
+    return TaskService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.TaskService = TaskService;
+//# sourceMappingURL=task.service.js.map

@@ -8,18 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// Angular Imports
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+// This Module's Components
+var my_tasks_component_1 = require('./my-tasks.component');
+var MyTasksModule = (function () {
+    function MyTasksModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>Digital Bullet Journal</h1>\n    <my-tasks></my-tasks>\n    ",
+    MyTasksModule = __decorate([
+        core_1.NgModule({
+            imports: [],
+            declarations: [
+                my_tasks_component_1.MyTasksComponent,
+            ],
+            exports: [
+                my_tasks_component_1.MyTasksComponent,
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], MyTasksModule);
+    return MyTasksModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.MyTasksModule = MyTasksModule;
+//# sourceMappingURL=my-tasks.module.js.map

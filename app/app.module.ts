@@ -3,8 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
 
+// Modules used in the app
+import { MyTasksModule } from './my-tasks/my-tasks.module'
+
 @NgModule({
-  imports:      [ BrowserModule ],
+  imports:      [ 
+    BrowserModule, 
+    MyTasksModule
+    ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
