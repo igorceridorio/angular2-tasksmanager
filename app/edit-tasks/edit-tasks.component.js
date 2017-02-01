@@ -9,17 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var EditTasksComponent = (function () {
+    function EditTasksComponent() {
     }
-    AppComponent = __decorate([
+    EditTasksComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>Task Manager Ultra Plus</h1>\n    <router-outlet></router-outlet>\n    ",
+            moduleId: module.id,
+            selector: 'edit-tasks',
+            templateUrl: 'edit-tasks.component.html',
+            styleUrls: []
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], EditTasksComponent);
+    return EditTasksComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.EditTasksComponent = EditTasksComponent;
+//# sourceMappingURL=edit-tasks.component.js.map

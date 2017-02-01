@@ -8,18 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// Angular Imports
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+// This Module's Components
+var edit_tasks_component_1 = require('./edit-tasks.component');
+var EditTasksModule = (function () {
+    function EditTasksModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1>Task Manager Ultra Plus</h1>\n    <router-outlet></router-outlet>\n    ",
+    EditTasksModule = __decorate([
+        core_1.NgModule({
+            imports: [],
+            declarations: [
+                edit_tasks_component_1.EditTasksComponent,
+            ],
+            exports: [
+                edit_tasks_component_1.EditTasksComponent,
+            ]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], EditTasksModule);
+    return EditTasksModule;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.EditTasksModule = EditTasksModule;
+//# sourceMappingURL=edit-tasks.module.js.map
