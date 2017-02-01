@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Import the directives used in the app
 import { Task } from '../services/task'
@@ -15,15 +16,20 @@ import { TaskService } from '../services/task.service'
 })
 
 export class MyTasksComponent implements OnInit{
+    
     tasks: Task[];
+    //task: Task =  {id: 3, name: 'Testing task', subtasks: [{id: 1, name: 'Testing subtask'}], priority: 'medium'};
+    task: Task;
 
-    constructor(private taskService: TaskService) { }
+    constructor(public taskService: TaskService, private router: Router) {  }
 
-    getTasks(): void {
+    ngOnInit(): void {
         this.taskService.getTasks().then(tasks => this.tasks = tasks);
     }
 
-    ngOnInit(): void {
-        this.getTasks();
+    setTask(task: Task): void {
+        this.task = task;
+        this.router.navigate(['/edit-tasks', this.task]);
     }
+
 }

@@ -6,11 +6,14 @@ import { Subtask } from './subtask';
 
 @Injectable()
 export class TaskService { 
+    public task: Task;
+
     getTasks(): Promise<Task[]> {
         return Promise.resolve(TASKS);
     }
 
     getTask(id: number): Promise<Task> {
-        return this.getTasks().then(subtasks => subtasks.find(task => task.id === id));
+        return this.getTasks().then(tasks => tasks.find(task => task.id === id));
     }
+
 }

@@ -1,3 +1,6 @@
 <!--component html goes here -->
 
 <h2>Edit Task</h2>
+<div *ngIf="task">
+    <p>{{ task.name }}</p>
+</div>

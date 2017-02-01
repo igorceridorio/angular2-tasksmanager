@@ -9,18 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 // Import the service used in the app
 var task_service_1 = require('../services/task.service');
 var MyTasksComponent = (function () {
-    function MyTasksComponent(taskService) {
+    function MyTasksComponent(taskService, router) {
         this.taskService = taskService;
+        this.router = router;
     }
-    MyTasksComponent.prototype.getTasks = function () {
+    MyTasksComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.taskService.getTasks().then(function (tasks) { return _this.tasks = tasks; });
     };
-    MyTasksComponent.prototype.ngOnInit = function () {
-        this.getTasks();
+    MyTasksComponent.prototype.setTask = function (task) {
+        this.task = task;
+        this.router.navigate(['/edit-tasks', this.task]);
     };
     MyTasksComponent = __decorate([
         core_1.Component({
@@ -30,7 +33,7 @@ var MyTasksComponent = (function () {
             styleUrls: ['my-tasks.component.css'],
             providers: [task_service_1.TaskService]
         }), 
-        __metadata('design:paramtypes', [task_service_1.TaskService])
+        __metadata('design:paramtypes', [task_service_1.TaskService, router_1.Router])
     ], MyTasksComponent);
     return MyTasksComponent;
 }());
