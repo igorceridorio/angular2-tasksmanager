@@ -1,1 +1,12 @@
-<!--component html goes here -->
+<h2>My tasks</h2>
+<ul class="tasks">
+    <li *ngFor="let task of tasks">
+    <span>ID: {{task.id}} - Name: {{task.name}} - Priority: {{task.priority}}</span>
+    <ul class="subtasks">
+        <li *ngFor="let subtask of task.subtasks">
+            <span>Subtask {{subtask.id}}: {{subtask.name}}</span>
+        </li>
+    </ul>
+    <p><button type="button">Edit</button><button type="button">Delete</button></p>
+    </li>
+</ul>

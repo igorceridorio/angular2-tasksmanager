@@ -16,6 +16,9 @@ var TaskService = (function () {
     TaskService.prototype.getTasks = function () {
         return Promise.resolve(mock_tasks_1.TASKS);
     };
+    TaskService.prototype.getTask = function (id) {
+        return this.getTasks().then(function (subtasks) { return subtasks.find(function (task) { return task.id === id; }); });
+    };
     TaskService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

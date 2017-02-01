@@ -9,16 +9,8 @@ import { TaskService } from '../services/task.service'
 @Component({
     moduleId: module.id,
     selector: 'my-tasks',
-    template:`
-        <h2>My tasks</h2>
-        <ul class="tasks">
-            <li *ngFor="let task of tasks">
-            <span>ID: {{task.id}} - Name: {{task.name}} - Priority: {{task.priority}}</span>
-            </li>
-        </ul>
-        `,
     templateUrl: 'my-tasks.component.html',
-    styleUrls: [],
+    styleUrls: ['my-tasks.component.css'],
     providers: [TaskService]
 })
 

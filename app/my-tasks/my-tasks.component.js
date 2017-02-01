@@ -26,9 +26,8 @@ var MyTasksComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-tasks',
-            template: "\n        <h2>My tasks</h2>\n        <ul class=\"tasks\">\n            <li *ngFor=\"let task of tasks\">\n            <span>ID: {{task.id}} - Name: {{task.name}} - Priority: {{task.priority}}</span>\n            </li>\n        </ul>\n        ",
             templateUrl: 'my-tasks.component.html',
-            styleUrls: [],
+            styleUrls: ['my-tasks.component.css'],
             providers: [task_service_1.TaskService]
         }), 
         __metadata('design:paramtypes', [task_service_1.TaskService])
