@@ -7,6 +7,9 @@
             <span>Subtask {{subtask.id}}: {{subtask.name}}</span>
         </li>
     </ul>
-    <p><button type="button" (click)="setTask(task)">Edit</button><button type="button">Delete</button></p>
+    <p>
+        <button type="button" (click)="setTask(task)">Edit</button>
+        <button type="button" (click)="deleteTask(task)">Delete</button>
+    </p>
     </li>
 </ul>

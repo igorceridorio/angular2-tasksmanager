@@ -25,6 +25,14 @@ var MyTasksComponent = (function () {
         this.task = task;
         this.router.navigate(['/edit-tasks', this.task]);
     };
+    MyTasksComponent.prototype.deleteTask = function (task) {
+        var index = this.tasks.indexOf(task);
+        this.tasks.splice(index, 1);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], MyTasksComponent.prototype, "elt", void 0);
     MyTasksComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

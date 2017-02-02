@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Import the directives used in the app
@@ -17,6 +17,9 @@ import { TaskService } from '../services/task.service'
 
 export class MyTasksComponent implements OnInit{
     
+    @Input()
+    elt : any;
+
     tasks: Task[];
     task: Task;
 
@@ -29,6 +32,11 @@ export class MyTasksComponent implements OnInit{
     setTask(task: Task): void {
         this.task = task;
         this.router.navigate(['/edit-tasks', this.task]);
+    }
+
+    deleteTask(task: Task): void {
+        var index = this.tasks.indexOf(task);
+        this.tasks.splice(index, 1);
     }
 
 }
