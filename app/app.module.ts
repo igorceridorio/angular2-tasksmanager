@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { FormsModule }    from '@angular/forms';
 
 // Components used in the app
 import { AppComponent }  from './app.component';
@@ -18,6 +19,7 @@ import { TaskService } from './services/task.service';
   imports:      [ 
     BrowserModule, 
     MyTasksModule,
+    FormsModule,
     RouterModule.forRoot([
         {path: '', redirectTo: '/my-tasks', pathMatch: 'full'},
         {path: 'my-tasks', component: MyTasksComponent},

@@ -26,4 +26,8 @@ export class EditTasksComponent {
     ngOnInit(): void {
         this.route.params.switchMap((params: Params) => this.taskService.getTask(+params['id'])).subscribe(task => this.task = task);
     }
+
+    goBack(): void {
+        this.location.back();
+    }
 }

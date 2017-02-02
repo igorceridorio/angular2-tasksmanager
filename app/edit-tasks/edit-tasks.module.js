@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 // Angular Imports
 var core_1 = require('@angular/core');
+var platform_browser_1 = require('@angular/platform-browser');
 // This Module's Components
 var edit_tasks_component_1 = require('./edit-tasks.component');
 var EditTasksModule = (function () {
@@ -17,7 +18,9 @@ var EditTasksModule = (function () {
     }
     EditTasksModule = __decorate([
         core_1.NgModule({
-            imports: [],
+            imports: [
+                platform_browser_1.BrowserModule,
+            ],
             declarations: [
                 edit_tasks_component_1.EditTasksComponent,
             ],

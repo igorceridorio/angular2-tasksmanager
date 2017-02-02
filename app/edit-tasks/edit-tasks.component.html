@@ -2,5 +2,14 @@
 
 <h2>Edit Task</h2>
 <div *ngIf="task">
-    <p>{{ task.name }}</p>
+    <label><p>ID: {{ task.id }}</p></label>
+    <label><p>Name: <input [(ngModel)]="task.name" placeholder="name"></p></label>
+    <p>Subtasks:</p>
+    <ul class="subtasks">
+        <li *ngFor="let subtask of task.subtasks">
+            <span>Subtask {{subtask.id}}: </span> <input [(ngModel)]="subtask.name" placeholder="subtask">
+        </li>
+    </ul>
+    <label><p>Priority: <input [(ngModel)]="task.priority" placeholder="priority"></p></label>
+    <p><button type="button" (click)="goBack()">Return</button></p>
 </div>

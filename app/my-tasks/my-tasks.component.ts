@@ -18,7 +18,6 @@ import { TaskService } from '../services/task.service'
 export class MyTasksComponent implements OnInit{
     
     tasks: Task[];
-    //task: Task =  {id: 3, name: 'Testing task', subtasks: [{id: 1, name: 'Testing subtask'}], priority: 'medium'};
     task: Task;
 
     constructor(public taskService: TaskService, private router: Router) {  }

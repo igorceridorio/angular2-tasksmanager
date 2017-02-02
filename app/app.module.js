@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
+var forms_1 = require('@angular/forms');
 // Components used in the app
 var app_component_1 = require('./app.component');
 var my_tasks_component_1 = require('./my-tasks/my-tasks.component');
@@ -27,6 +28,7 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 my_tasks_module_1.MyTasksModule,
+                forms_1.FormsModule,
                 router_1.RouterModule.forRoot([
                     { path: '', redirectTo: '/my-tasks', pathMatch: 'full' },
                     { path: 'my-tasks', component: my_tasks_component_1.MyTasksComponent },
