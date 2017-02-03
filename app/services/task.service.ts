@@ -16,4 +16,8 @@ export class TaskService {
         return this.getTasks().then(tasks => tasks.find(task => task.id === id));
     }
 
+    addTask(task: Task) {
+        TASKS.push(task);
+    }
+
 }

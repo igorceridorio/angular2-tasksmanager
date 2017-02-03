@@ -22,7 +22,7 @@ import { TaskInterface } from '../services/task-subtask.interface'
 })
 export class NewTaskComponent implements OnInit {
     public myForm: FormGroup;
-    
+
     constructor(private taskService: TaskService, private route: ActivatedRoute, private location: Location, private _fb: FormBuilder) { }
 
     ngOnInit() {
@@ -58,6 +58,10 @@ export class NewTaskComponent implements OnInit {
         // ...
         console.log(model);
         
+    }
+
+    saveTask(myForm: FormGroup) {
+        this.taskService.addTask(myForm.value);
     }
 
     goBack(): void {

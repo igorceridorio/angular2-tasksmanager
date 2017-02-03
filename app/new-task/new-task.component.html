@@ -60,7 +60,7 @@
     </div>
 
     <div class="margin-20">
-        <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+        <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid" (click)="saveTask(myForm)">Submit</button>
     </div>
     <div class="clearfix"></div>
 
@@ -73,4 +73,4 @@
 
 </form>
 
-<p><button type="button" (click)="goBack()">Return</button></p>
+<p><button type="button" (click)="goBack()">Cancel</button></p>

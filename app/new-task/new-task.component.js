@@ -50,6 +50,9 @@ var NewTaskComponent = (function () {
         // ...
         console.log(model);
     };
+    NewTaskComponent.prototype.saveTask = function (myForm) {
+        this.taskService.addTask(myForm.value);
+    };
     NewTaskComponent.prototype.goBack = function () {
         this.location.back();
     };
