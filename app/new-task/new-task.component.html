@@ -1,76 +1,92 @@
-<h2>Add new task</h2>
+<!-- Panel declaration -->
+<div class="panel panel-default">
 
-<form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
-   
-    <!-- Task -->
-    <div class="form-group">
-        <p><label>ID:</label></p>
-        <p>
-            <input type="text" class="form-control" formControlName="id">
-            <small *ngIf="!myForm.controls.id.valid" class="text-danger">
-                ID is required.
-            </small>
-        </p>
-        <p><label>Name:</label></p>
-        <p>
-            <input type="text" class="form-control" formControlName="name">
-            <small *ngIf="!myForm.controls.name.valid" class="text-danger">
-                Name is required (minimum 5 characters).
-            </small>
-        </p>
-        <p><label>Priority:</label></p>
-        <p>
-            <input type="text" class="form-control" formControlName="priority">
-            <small *ngIf="!myForm.controls.priority.valid" class="text-danger">
-                Priority is required.
-            </small>
-        </p>
+    <!-- Panel header -->
+    <div class="panel-heading">
+        <h2 class="panel-title">Add new task</h2>
     </div>
 
-    <!-- Substasks --> 
-    <div formArrayName="subtasks">
-        <div *ngFor="let subtask of myForm.controls.subtasks.controls; let i=index" class="panel panel-default">
-            <div class="panel-heading">
-                <span>Subtask {{ i + 1 }}</span>
-                <span *ngIf="myForm.controls.subtasks.controls.length > 1" (click)="removeSubtask(i)"></span>
-            </div>
-            <div class="panel-body" [formGroupName]="i">
-                <div class="form-group-col-sx-6">
+    <!-- Panel content -->
+    <div class="panel-body">
+        <div class="container col-md-6">
+
+             <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+            
+                <!-- Task -->
+                <div class="form-group">
                     <p><label>ID:</label></p>
-                    <input type="text" class="form-control" formControlName="id">
-                    <small [hidden]="myForm.controls.subtasks.controls[i].controls.id.valid" class="text-danger">
-                        ID is required.
-                    </small>
-                </div>
-                <div class="form-group-col-sx-6">
+                    <p>
+                        <input type="text" class="form-control" formControlName="id">
+                        <small *ngIf="!myForm.controls.id.valid" class="text-danger">
+                            ID is required.
+                        </small>
+                    </p>
                     <p><label>Name:</label></p>
-                    <input type="text" class="form-control" formControlName="name">
-                    <small [hidden]="myForm.controls.subtasks.controls[i].controls.name.valid" class="text-danger">
-                        Name is required.
-                    </small>
+                    <p>
+                        <input type="text" class="form-control" formControlName="name">
+                        <small *ngIf="!myForm.controls.name.valid" class="text-danger">
+                            Name is required (minimum 5 characters).
+                        </small>
+                    </p>
+                    <p><label>Priority:</label></p>
+                    <p>
+                        <input type="text" class="form-control" formControlName="priority">
+                        <small *ngIf="!myForm.controls.priority.valid" class="text-danger">
+                            Priority is required.
+                        </small>
+                    </p>
                 </div>
-            </div>
-        </div>    
+
+                <!-- Substasks --> 
+                <div formArrayName="subtasks">
+                    <div *ngFor="let subtask of myForm.controls.subtasks.controls; let i=index" class="panel panel-default">
+                        <div class="panel-heading">
+                            <span>Subtask {{ i + 1 }}</span>
+                            <span *ngIf="myForm.controls.subtasks.controls.length > 1" (click)="removeSubtask(i)"></span>
+                        </div>
+                        <div class="panel-body" [formGroupName]="i">
+                            <div class="form-group-col-sx-6">
+                                <p><label>ID:</label></p>
+                                <input type="text" class="form-control" formControlName="id">
+                                <small [hidden]="myForm.controls.subtasks.controls[i].controls.id.valid" class="text-danger">
+                                    ID is required.
+                                </small>
+                            </div>
+                            <div class="form-group-col-sx-6">
+                                <p><label>Name:</label></p>
+                                <input type="text" class="form-control" formControlName="name">
+                                <small [hidden]="myForm.controls.subtasks.controls[i].controls.name.valid" class="text-danger">
+                                    Name is required.
+                                </small>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+
+                <div class="margin-20">
+                    <a (click)="addSubtask()" style="cursor: default">
+                    Add another subtask
+                    </a>
+                </div>
+
+                <!-- Form details (for debugging purposes)
+                <div class="margin-20">
+                    <div>myForm details:-</div>
+                    <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
+                    <pre>form value: <br>{{myForm.value | json}}</pre>
+                </div> -->
+
+            </form>
+        </div>
     </div>
 
-    <div class="margin-20">
-        <a (click)="addSubtask()" style="cursor: default">
-        Add another subtask
-        </a>
+    <!--Panel footer  -->
+    <div class="panel-footer">
+        <div class="margin-20">
+            <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid" (click)="saveTask(myForm)">Submit</button>
+            <button type="button" class="btn btn-danger" (click)="goBack()">Cancel</button>
+        </div>
+        <div class="clearfix"></div>
     </div>
 
-    <div class="margin-20">
-        <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid" (click)="saveTask(myForm)">Submit</button>
-    </div>
-    <div class="clearfix"></div>
-
-    <!-- Form details (for debugging purposes)
-    <div class="margin-20">
-        <div>myForm details:-</div>
-        <pre>Is myForm valid?: <br>{{myForm.valid | json}}</pre>
-        <pre>form value: <br>{{myForm.value | json}}</pre>
-    </div> -->
-
-</form>
-
-<p><button type="button" (click)="goBack()">Cancel</button></p>
+</div>

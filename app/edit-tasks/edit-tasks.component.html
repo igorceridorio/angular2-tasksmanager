@@ -8,17 +8,24 @@
 
     <!-- Panel content -->
     <div class="panel-body">
-        <div *ngIf="task">
-            <label><p>ID: {{ task.id }}</p></label>
-            <label><p>Name: <input [(ngModel)]="task.name" placeholder="name"></p></label>
-            <p>Subtasks:</p>
+        <div *ngIf="task" class="col-md-6">
+            <p><label>ID:</label></p>
+            <p><input [(ngModel)]="task.id" class="form-control" placeholder="id"></p>
+            <p><label>Name:</label></p>
+            <p><input [(ngModel)]="task.name" class="form-control" placeholder="name"></p>
+            <p><label>Subtasks:</label></p>
             <ul class="subtasks">
                 <li *ngFor="let subtask of task.subtasks">
-                    <span>Subtask {{subtask.id}}: </span> <input [(ngModel)]="subtask.name" placeholder="subtask">
+                    <span>Subtask {{subtask.id}}: </span> <input [(ngModel)]="subtask.name" class="form-control" placeholder="subtask">
                 </li>
             </ul>
-            <label><p>Priority: <input [(ngModel)]="task.priority" placeholder="priority"></p></label>
-            <p><button type="button" (click)="goBack()">Return</button></p>
+            <p><label>Priority:</label></p>
+            <p><input [(ngModel)]="task.priority" class="form-control" placeholder="priority"></p>
         </div>
+    </div>
+
+    <!-- Panel footer -->
+    <div class="panel-footer">
+        <p><button type="button" class="btn btn-success" (click)="goBack()">Save and Return</button></p>
     </div>
 </div>
