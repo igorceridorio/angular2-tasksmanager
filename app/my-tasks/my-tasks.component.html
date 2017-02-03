@@ -1,16 +1,33 @@
-<h2>My tasks</h2>
-<ul class="tasks">
-    <li *ngFor="let task of tasks">
-    <span>ID: {{task.id}} - Name: {{task.name}} - Priority: {{task.priority}}</span>
-    <ul class="subtasks">
-        <li *ngFor="let subtask of task.subtasks">
-            <span>Subtask {{subtask.id}}: {{subtask.name}}</span>
-        </li>
-    </ul>
-    <p>
-        <button type="button" (click)="setTask(task)">Edit</button>
-        <button type="button" (click)="deleteTask(task)">Delete</button>
-    </p>
-    </li>
-</ul>
-<p><button type="button" (click)="newTask()">Add new task</button></p>
+<!-- Panel declaration -->
+<div class="panel panel-default">
+    
+    <!-- Panel header -->
+    <div class="panel-heading">
+        <h2 class="panel-title">My tasks</h2>
+    </div>
+    
+    <!-- Panel content -->
+    <div class="panel-body">
+
+        <!-- List group -->
+        <ul class="tasks list-group">
+            <li class="list-group-item" *ngFor="let task of tasks">
+            <span><strong>ID:</strong> {{task.id}} - <strong>Name:</strong> {{task.name}} - <strong>Priority:</strong> {{task.priority}}</span>
+            <ul class="subtasks list-group">
+                <li class="list-group-item" *ngFor="let subtask of task.subtasks">
+                    <span><strong>Subtask {{subtask.id}}:</strong> {{subtask.name}}</span>
+                </li>
+            </ul>
+            <p>
+                <button type="button" class="btn btn-primary" (click)="setTask(task)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="deleteTask(task)">Delete</button>
+            </p>
+            </li>
+        </ul>
+        <!-- End of list group -->
+
+        <p><button type="button"  class="btn btn-success" (click)="newTask()">Add new task</button></p>
+    </div>
+    <!-- End of panel content -->
+</div>
+

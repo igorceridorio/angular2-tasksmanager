@@ -11,7 +11,6 @@ import { TaskService } from '../services/task.service'
     moduleId: module.id,
     selector: 'my-tasks',
     templateUrl: 'my-tasks.component.html',
-    styleUrls: ['my-tasks.component.css'],
     providers: [TaskService]
 })
 

@@ -37,7 +37,6 @@ var MyTasksComponent = (function () {
             moduleId: module.id,
             selector: 'my-tasks',
             templateUrl: 'my-tasks.component.html',
-            styleUrls: ['my-tasks.component.css'],
             providers: [task_service_1.TaskService]
         }), 
         __metadata('design:paramtypes', [task_service_1.TaskService, router_1.Router])

@@ -62,6 +62,7 @@ export class NewTaskComponent implements OnInit {
 
     saveTask(myForm: FormGroup) {
         this.taskService.addTask(myForm.value);
+        this.location.back();
     }
 
     goBack(): void {

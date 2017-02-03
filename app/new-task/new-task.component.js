@@ -52,6 +52,7 @@ var NewTaskComponent = (function () {
     };
     NewTaskComponent.prototype.saveTask = function (myForm) {
         this.taskService.addTask(myForm.value);
+        this.location.back();
     };
     NewTaskComponent.prototype.goBack = function () {
         this.location.back();
