@@ -16,8 +16,10 @@ var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var my_tasks_component_1 = require('./my-tasks/my-tasks.component');
 var edit_tasks_component_1 = require('./edit-tasks/edit-tasks.component');
+var new_task_component_1 = require('./new-task/new-task.component');
 // Modules used in the app
 var my_tasks_module_1 = require('./my-tasks/my-tasks.module');
+var new_task_module_1 = require('./new-task/new-task.module');
 // Services used in the app
 var task_service_1 = require('./services/task.service');
 var AppModule = (function () {
@@ -28,11 +30,14 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 my_tasks_module_1.MyTasksModule,
+                new_task_module_1.NewTaskModule,
                 forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
                 router_1.RouterModule.forRoot([
                     { path: '', redirectTo: '/my-tasks', pathMatch: 'full' },
                     { path: 'my-tasks', component: my_tasks_component_1.MyTasksComponent },
-                    { path: 'edit-tasks', component: edit_tasks_component_1.EditTasksComponent }
+                    { path: 'edit-tasks', component: edit_tasks_component_1.EditTasksComponent },
+                    { path: 'new-task', component: new_task_component_1.NewTaskComponent }
                 ])
             ],
             declarations: [

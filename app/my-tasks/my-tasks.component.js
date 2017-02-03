@@ -29,10 +29,9 @@ var MyTasksComponent = (function () {
         var index = this.tasks.indexOf(task);
         this.tasks.splice(index, 1);
     };
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], MyTasksComponent.prototype, "elt", void 0);
+    MyTasksComponent.prototype.newTask = function () {
+        this.router.navigate(['/new-task']);
+    };
     MyTasksComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

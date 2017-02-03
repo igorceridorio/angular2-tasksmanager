@@ -16,10 +16,6 @@ import { TaskService } from '../services/task.service'
 })
 
 export class MyTasksComponent implements OnInit{
-    
-    @Input()
-    elt : any;
-
     tasks: Task[];
     task: Task;
 
@@ -37,6 +33,10 @@ export class MyTasksComponent implements OnInit{
     deleteTask(task: Task): void {
         var index = this.tasks.indexOf(task);
         this.tasks.splice(index, 1);
+    }
+
+    newTask(): void {
+        this.router.navigate(['/new-task']);
     }
 
 }
