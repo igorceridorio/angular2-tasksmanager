@@ -53,11 +53,15 @@ export class NewTaskComponent implements OnInit {
         control.removeAt(i);
     }
 
-    save(model: TaskInterface) {
+    /*save(model: TaskInterface) {
         // call the API to save data
         // ...
         console.log(model);
         
+    }*/
+
+    save(): void {
+        this.taskService.create(this.myForm).then(() => this.goBack());
     }
 
     saveTask(myForm: FormGroup) {

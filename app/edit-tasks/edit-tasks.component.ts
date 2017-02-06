@@ -27,6 +27,11 @@ export class EditTasksComponent {
         this.route.params.switchMap((params: Params) => this.taskService.getTask(+params['id'])).subscribe(task => this.task = task);
     }
 
+    save(task: Task): void {
+        this.taskService.update(task)
+            .then(() => this.goBack());
+    }
+
     goBack(): void {
         this.location.back();
     }

@@ -26,6 +26,11 @@ var EditTasksComponent = (function () {
         var _this = this;
         this.route.params.switchMap(function (params) { return _this.taskService.getTask(+params['id']); }).subscribe(function (task) { return _this.task = task; });
     };
+    EditTasksComponent.prototype.save = function (task) {
+        var _this = this;
+        this.taskService.update(task)
+            .then(function () { return _this.goBack(); });
+    };
     EditTasksComponent.prototype.goBack = function () {
         this.location.back();
     };

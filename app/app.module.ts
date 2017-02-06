@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 // Components used in the app
 import { AppComponent }  from './app.component';
@@ -17,13 +18,17 @@ import { NewTaskModule } from './new-task/new-task.module';
 // Services used in the app
 import { TaskService } from './services/task.service';
 
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
+
 @NgModule({
   imports:      [ 
-    BrowserModule, 
-    MyTasksModule,
-    NewTaskModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     RouterModule.forRoot([
         {path: '', redirectTo: '/my-tasks', pathMatch: 'full'},
         {path: 'my-tasks', component: MyTasksComponent},
@@ -33,7 +38,9 @@ import { TaskService } from './services/task.service';
     ],
   declarations: [ 
     AppComponent,
-    EditTasksComponent 
+    EditTasksComponent,
+    MyTasksComponent,
+    NewTaskComponent
     ],
   bootstrap:    [ AppComponent ],
   providers:    [ TaskService ]

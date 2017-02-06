@@ -45,10 +45,15 @@ var NewTaskComponent = (function () {
         var control = this.myForm.controls['subtasks'];
         control.removeAt(i);
     };
-    NewTaskComponent.prototype.save = function (model) {
+    /*save(model: TaskInterface) {
         // call the API to save data
         // ...
         console.log(model);
+        
+    }*/
+    NewTaskComponent.prototype.save = function () {
+        var _this = this;
+        this.taskService.create(this.myForm).then(function () { return _this.goBack(); });
     };
     NewTaskComponent.prototype.saveTask = function (myForm) {
         this.taskService.addTask(myForm.value);

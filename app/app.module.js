@@ -12,16 +12,17 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 // Components used in the app
 var app_component_1 = require('./app.component');
 var my_tasks_component_1 = require('./my-tasks/my-tasks.component');
 var edit_tasks_component_1 = require('./edit-tasks/edit-tasks.component');
 var new_task_component_1 = require('./new-task/new-task.component');
-// Modules used in the app
-var my_tasks_module_1 = require('./my-tasks/my-tasks.module');
-var new_task_module_1 = require('./new-task/new-task.module');
 // Services used in the app
 var task_service_1 = require('./services/task.service');
+// Imports for loading & configuring the in-memory web api
+var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
+var in_memory_data_service_1 = require('./services/in-memory-data.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,10 +30,10 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                my_tasks_module_1.MyTasksModule,
-                new_task_module_1.NewTaskModule,
                 forms_1.FormsModule,
                 forms_1.ReactiveFormsModule,
+                http_1.HttpModule,
+                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
                 router_1.RouterModule.forRoot([
                     { path: '', redirectTo: '/my-tasks', pathMatch: 'full' },
                     { path: 'my-tasks', component: my_tasks_component_1.MyTasksComponent },
@@ -42,7 +43,9 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                edit_tasks_component_1.EditTasksComponent
+                edit_tasks_component_1.EditTasksComponent,
+                my_tasks_component_1.MyTasksComponent,
+                new_task_component_1.NewTaskComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [task_service_1.TaskService]
