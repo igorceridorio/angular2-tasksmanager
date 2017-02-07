@@ -26,8 +26,13 @@ var MyTasksComponent = (function () {
         this.router.navigate(['/edit-tasks', this.task]);
     };
     MyTasksComponent.prototype.deleteTask = function (task) {
-        var index = this.tasks.indexOf(task);
-        this.tasks.splice(index, 1);
+        var _this = this;
+        this.taskService
+            .delete(task.id)
+            .then(function () {
+            _this.tasks.filter(function (t) { return t !== task; });
+        });
+        this.taskService.getTasks().then(function (tasks) { return _this.tasks = tasks; });
     };
     MyTasksComponent.prototype.newTask = function () {
         this.router.navigate(['/new-task']);

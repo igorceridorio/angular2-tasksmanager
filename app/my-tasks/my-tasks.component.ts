@@ -28,10 +28,14 @@ export class MyTasksComponent implements OnInit{
         this.task = task;
         this.router.navigate(['/edit-tasks', this.task]);
     }
-
+    
     deleteTask(task: Task): void {
-        var index = this.tasks.indexOf(task);
-        this.tasks.splice(index, 1);
+        this.taskService
+            .delete(task.id)
+            .then(() => {
+                this.tasks.filter(t => t !== task);
+            });
+        this.taskService.getTasks().then(tasks => this.tasks = tasks);
     }
 
     newTask(): void {

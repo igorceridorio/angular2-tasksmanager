@@ -20,7 +20,7 @@
             </ul>
             <p>
                 <button type="button" class="btn btn-primary" (click)="setTask(task)">Edit</button>
-                <button type="button" class="btn btn-danger" (click)="deleteTask(task)">Delete</button>
+                <button type="button" class="btn btn-danger" (click)="deleteTask(task); $event.stopPropagation()">Delete</button>
             </p>
             </li>
         </ul>
